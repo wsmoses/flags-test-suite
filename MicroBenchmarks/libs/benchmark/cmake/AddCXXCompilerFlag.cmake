@@ -72,7 +72,7 @@ function(check_cxx_warning_flag FLAG)
   set(OLD_CMAKE_REQUIRED_FLAGS "${CMAKE_REQUIRED_FLAGS}")
   # Add -Werror to ensure the compiler generates an error if the warning flag
   # doesn't exist.
-  set(CMAKE_REQUIRED_FLAGS "${CMAKE_REQUIRED_FLAGS} -Werror ${FLAG}")
+  set(CMAKE_REQUIRED_FLAGS "${CMAKE_REQUIRED_FLAGS} ${FLAG}")
   check_cxx_compiler_flag("${FLAG}" ${MANGLED_FLAG})
   set(CMAKE_REQUIRED_FLAGS "${OLD_CMAKE_REQUIRED_FLAGS}")
 endfunction()

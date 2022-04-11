@@ -51,7 +51,7 @@ for cc in /usr/local/bin/gcc /opt/llvm/clang/bin/clang; do
       --workdir="/build" \
       --rm \
       --env="CC=${cc}" \
-      --env="CXX_FLAGS=\"-Werror -Wdeprecated\"" \
+      --env="CXX_FLAGS=\" -Wdeprecated\"" \
       ${LINUX_LATEST_CONTAINER} \
       /bin/bash -c "
         cmake /src \
@@ -75,7 +75,6 @@ time docker run \
   ${LINUX_GCC_FLOOR_CONTAINER} \
     /usr/local/bin/bazel test ... \
       --copt="-Wall" \
-      --copt="-Werror" \
       --copt="-Wno-error=pragmas" \
       --keep_going \
       --show_timestamps \
@@ -93,7 +92,6 @@ for std in ${STD}; do
       ${LINUX_LATEST_CONTAINER} \
       /usr/local/bin/bazel test ... \
         --copt="-Wall" \
-        --copt="-Werror" \
         --define="absl=${absl}" \
         --distdir="/bazel-distdir" \
         --keep_going \
@@ -115,7 +113,6 @@ for std in ${STD}; do
       /usr/local/bin/bazel test ... \
         --copt="--gcc-toolchain=/usr/local" \
         --copt="-Wall" \
-        --copt="-Werror" \
         --define="absl=${absl}" \
         --distdir="/bazel-distdir" \
         --keep_going \

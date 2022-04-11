@@ -65,7 +65,6 @@ cd ${GTEST_ROOT}
 for absl in 0 1; do
   ${BAZEL_BIN} test ... \
     --copt="-Wall" \
-    --copt="-Werror" \
     --define="absl=${absl}" \
     --keep_going \
     --show_timestamps \
